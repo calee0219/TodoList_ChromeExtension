@@ -1,0 +1,30 @@
+{
+	"manifest_version": 2,
+	"name": "Countdown Todo List",
+	"description": "todo list",
+	"version": "0.1",
+	"author" : {
+        "name" : "Gavin Lee",
+        "email": "sz110010@gmail.com"
+    },
+	"content_security_policy":"script-src 'self' https://localhost; object-src 'self'",
+	"chrome_url_overrides": {
+		"newtab": "tab.html"
+	},
+	"permissions": [
+		"tabs",
+        "activeTab",
+        "notifications",
+        "storage"
+	],
+	"content_scripts": [{
+			"matches": ["http://*/*", "https://*/*"],
+            "css": ["styles.css"],
+            "js": ["js/background.js"]
+	}],
+	"background": {
+		"scripts": [
+			"js/background.js"
+		]
+	}
+}
